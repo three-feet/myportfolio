@@ -1,1 +1,426 @@
-<h1>나의 새로운 포트폴리오 페이지</h1>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Specialist Portfolio | 혁신을 이끄는 인공지능 전문가</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+            color: #e5e7eb;
+            overflow-x: hidden;
+        }
+
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            border-color: rgba(96, 165, 250, 0.5);
+            box-shadow: 0 10px 30px -10px rgba(96, 165, 250, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Image Placeholder Style */
+        .img-container {
+            background: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease;
+        }
+
+        .img-fallback {
+            position: absolute;
+            color: #444;
+            font-size: 0.8rem;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Animation (Neural Network Nodes) -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold gradient-text tracking-tighter">AI.EXPERT</div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#home" class="hover:text-blue-400 transition">Home</a>
+                <a href="#about" class="hover:text-blue-400 transition">About</a>
+                <a href="#research" class="hover:text-blue-400 transition">Research</a>
+                <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
+                <a href="#contact" class="px-4 py-2 bg-blue-600 rounded-full hover:bg-blue-500 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center text-center">
+        <div class="max-w-4xl">
+            <h2 class="text-blue-400 font-semibold tracking-widest mb-4 uppercase text-sm">Artificial Intelligence Specialist</h2>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+                데이터로 미래를 <br><span class="gradient-text">모델링하다</span>
+            </h1>
+            <p class="text-gray-400 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+                딥러닝, 자연어 처리(NLP), 그리고 대규모 언어 모델(LLM) 최적화를 연구합니다. 
+                복잡한 비즈니스 문제를 AI 기술로 해결하는 전문가입니다.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#projects" class="px-8 py-4 bg-white text-black font-bold rounded-xl hover:bg-gray-200 transition flex items-center justify-center">
+                    <i data-lucide="layout-grid" class="mr-2"></i> 프로젝트 보기
+                </a>
+                <a href="#research" class="px-8 py-4 glass font-bold rounded-xl hover:bg-white/10 transition flex items-center justify-center">
+                    연구 분야 확인
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="max-w-7xl mx-auto scroll-reveal">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                <div class="relative glass p-4 rounded-2xl overflow-hidden img-container h-[450px]">
+                    <div class="img-fallback">[AI 연구를 상징하는 이미지]</div>
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000&auto=format&fit=crop" 
+                         alt="Artificial Intelligence Visualization" 
+                         onerror="this.style.opacity='0';">
+                </div>
+            </div>
+            <div>
+                <h3 class="text-3xl font-bold mb-6">안녕하세요, <br>혁신을 꿈꾸는 <span class="text-blue-400">AI 아키텍트</span>입니다.</h3>
+                <p class="text-gray-400 mb-6 leading-relaxed">
+                    저는 데이터 속에 숨겨진 패턴을 발견하고, 이를 통해 효율적인 AI 솔루션을 구축하는 데 열정을 가지고 있습니다. 
+                    단순한 모델 개발을 넘어, 실제 환경에서 안정적으로 동작하는 MLOps 체계 구축에도 강점이 있습니다.
+                </p>
+                <div class="grid grid-cols-2 gap-4 mb-8">
+                    <div class="glass p-4 rounded-lg">
+                        <div class="text-blue-400 font-bold text-2xl">5+</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wider">Years Exp</div>
+                    </div>
+                    <div class="glass p-4 rounded-lg">
+                        <div class="text-purple-400 font-bold text-2xl">12+</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wider">Projects Done</div>
+                    </div>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-blue-900/30 text-blue-300 text-xs rounded-full border border-blue-800 font-medium">PyTorch</span>
+                    <span class="px-3 py-1 bg-blue-900/30 text-blue-300 text-xs rounded-full border border-blue-800 font-medium">TensorFlow</span>
+                    <span class="px-3 py-1 bg-blue-900/30 text-blue-300 text-xs rounded-full border border-blue-800 font-medium">Transformers</span>
+                    <span class="px-3 py-1 bg-blue-900/30 text-blue-300 text-xs rounded-full border border-blue-800 font-medium">MLOps</span>
+                    <span class="px-3 py-1 bg-blue-900/30 text-blue-300 text-xs rounded-full border border-blue-800 font-medium">Kubernetes</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research/Services Section -->
+    <section id="research" class="max-w-7xl mx-auto scroll-reveal">
+        <h2 class="text-3xl font-bold mb-12 text-center">주요 <span class="gradient-text">연구 분야</span></h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="glass p-8 rounded-3xl card-hover">
+                <i data-lucide="message-square" class="text-blue-400 w-12 h-12 mb-6"></i>
+                <h4 class="text-xl font-bold mb-4">자연어 처리 (NLP)</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    LLM Fine-tuning 및 RAG(Retrieval-Augmented Generation) 시스템을 통한 지능형 서비스 구축.
+                </p>
+            </div>
+            <div class="glass p-8 rounded-3xl card-hover">
+                <i data-lucide="eye" class="text-purple-400 w-12 h-12 mb-6"></i>
+                <h4 class="text-xl font-bold mb-4">컴퓨터 비전</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    실시간 객체 탐지(Object Detection) 및 이미지 생성 모델(Diffusion) 연구.
+                </p>
+            </div>
+            <div class="glass p-8 rounded-3xl card-hover">
+                <i data-lucide="database" class="text-pink-400 w-12 h-12 mb-6"></i>
+                <h4 class="text-xl font-bold mb-4">데이터 분석 및 예측</h4>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    시계열 데이터 분석을 통한 시장 예측 모델 및 이상 탐지 시스템 설계.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="max-w-7xl mx-auto scroll-reveal">
+        <div class="flex justify-between items-end mb-12 px-4">
+            <div>
+                <h2 class="text-3xl font-bold mb-2">포트폴리오 <span class="gradient-text">하이라이트</span></h2>
+                <p class="text-gray-500">핵심 프로젝트 아카이브</p>
+            </div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Project 1 -->
+            <div class="glass overflow-hidden rounded-3xl group card-hover">
+                <div class="h-64 img-container relative">
+                    <div class="img-fallback">[LLM 프로젝트 이미지]</div>
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4638ef808?q=80&w=1000&auto=format&fit=crop" 
+                         alt="LLM Project"
+                         class="group-hover:scale-110 transition duration-500"
+                         onerror="this.style.opacity='0';">
+                    <div class="absolute top-4 left-4 flex gap-2">
+                        <span class="px-3 py-1 bg-black/60 backdrop-blur text-[10px] uppercase font-bold rounded-full">NLP</span>
+                        <span class="px-3 py-1 bg-black/60 backdrop-blur text-[10px] uppercase font-bold rounded-full">LLM</span>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <h4 class="text-2xl font-bold mb-4">기업 전용 프라이빗 LLM 구축</h4>
+                    <p class="text-gray-400 text-sm mb-6">
+                        내부 데이터를 활용하여 보안성이 강화된 온프레미스 기반의 대형 언어 모델을 구축하고 RAG 시스템을 통합했습니다.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <a href="#" class="text-blue-400 font-semibold flex items-center hover:underline">
+                            세부사항 보기 <i data-lucide="arrow-up-right" class="ml-1 w-4 h-4"></i>
+                        </a>
+                        <div class="flex space-x-3 text-gray-500">
+                            <i data-lucide="github" class="w-5 h-5 cursor-pointer hover:text-white transition"></i>
+                            <i data-lucide="external-link" class="w-5 h-5 cursor-pointer hover:text-white transition"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="glass overflow-hidden rounded-3xl group card-hover">
+                <div class="h-64 img-container relative">
+                    <div class="img-fallback">[Vision AI 프로젝트 이미지]</div>
+                    <img src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?q=80&w=1000&auto=format&fit=crop" 
+                         alt="Vision AI Project"
+                         class="group-hover:scale-110 transition duration-500"
+                         onerror="this.style.opacity='0';">
+                    <div class="absolute top-4 left-4 flex gap-2">
+                        <span class="px-3 py-1 bg-black/60 backdrop-blur text-[10px] uppercase font-bold rounded-full">Vision</span>
+                        <span class="px-3 py-1 bg-black/60 backdrop-blur text-[10px] uppercase font-bold rounded-full">PyTorch</span>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <h4 class="text-2xl font-bold mb-4">지능형 객체 탐지 시스템</h4>
+                    <p class="text-gray-400 text-sm mb-6">
+                        실시간 비디오 스트림에서 다중 객체를 탐지하고 행동을 분석하는 고성능 딥러닝 파이프라인을 설계했습니다.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <a href="#" class="text-blue-400 font-semibold flex items-center hover:underline">
+                            세부사항 보기 <i data-lucide="arrow-up-right" class="ml-1 w-4 h-4"></i>
+                        </a>
+                        <div class="flex space-x-3 text-gray-500">
+                            <i data-lucide="github" class="w-5 h-5 cursor-pointer hover:text-white transition"></i>
+                            <i data-lucide="external-link" class="w-5 h-5 cursor-pointer hover:text-white transition"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="max-w-4xl mx-auto scroll-reveal mb-20 text-center">
+        <div class="glass p-12 rounded-[3rem]">
+            <h2 class="text-4xl font-bold mb-6">협업 <span class="gradient-text">문의</span></h2>
+            <p class="text-gray-400 mb-10">새로운 도전이나 흥미로운 AI 프로젝트가 있다면 언제든지 연락주세요.</p>
+            
+            <div class="grid md:grid-cols-2 gap-6 text-left mb-10">
+                <div class="flex items-start p-4 glass rounded-2xl">
+                    <div class="bg-blue-600/20 p-3 rounded-xl mr-4 text-blue-400">
+                        <i data-lucide="mail"></i>
+                    </div>
+                    <div>
+                        <div class="text-sm text-gray-500 uppercase">Email</div>
+                        <div class="font-medium text-lg">contact@aiexpert.io</div>
+                    </div>
+                </div>
+                <div class="flex items-start p-4 glass rounded-2xl">
+                    <div class="bg-purple-600/20 p-3 rounded-xl mr-4 text-purple-400">
+                        <i data-lucide="linkedin"></i>
+                    </div>
+                    <div>
+                        <div class="text-sm text-gray-500 uppercase">LinkedIn</div>
+                        <div class="font-medium text-lg">linkedin.com/in/aiexpert</div>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="window.location.href='mailto:contact@aiexpert.io'" class="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl font-bold text-lg hover:shadow-lg hover:shadow-blue-500/20 transition">
+                메시지 보내기
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 border-t border-white/5 text-center text-gray-600 text-sm">
+        <p>&copy; 2026 AI Portfolio. All rights reserved. Created for GitHub Pages.</p>
+    </footer>
+
+    <script>
+        // Background Animation Logic (Neural Network Nodes)
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        // 클래스 정의를 상단으로 이동 (ReferenceError 해결)
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = (Math.random() - 0.5) * 0.3;
+                this.speedY = (Math.random() - 0.5) * 0.3;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x > canvas.width) this.x = 0;
+                else if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                else if (this.y < 0) this.y = canvas.height;
+            }
+
+            draw() {
+                ctx.fillStyle = 'rgba(96, 165, 250, 0.4)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function init() {
+            particles = [];
+            const particleCount = Math.floor((canvas.width * canvas.height) / 15000); 
+            for (let i = 0; i < Math.min(particleCount, 100); i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function resize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            init(); 
+        }
+
+        window.addEventListener('resize', resize);
+        
+        // 초기 사이즈 설정 및 파티클 생성
+        resize();
+
+        function connect() {
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a; b < particles.length; b++) {
+                    let dx = particles[a].x - particles[b].x;
+                    let dy = particles[a].y - particles[b].y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 180) {
+                        ctx.strokeStyle = `rgba(96, 165, 250, ${(1 - distance / 180) * 0.2})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+            }
+            connect();
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // Scroll Reveal Animation with IntersectionObserver
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
+
+        // Lucide Icons Render
+        lucide.createIcons();
+
+        // Smooth Scroll for Internal Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
